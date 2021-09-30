@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Copyright (c) 2010 Kai Toedter and others.
- * 
- * All rights reserved. This program and the accompanying materials 
+ *
+ * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html.
- * 
+ *
  * Contributors:
  *     Kai Toedter - initial implementation
  ******************************************************************************/
@@ -33,7 +33,8 @@ import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DetailsView {
+public class DetailsView
+{
 	private DataBindingContext dbc;
 	private WritableValue contactValue;
 	private Text firstNameText;
@@ -42,29 +43,27 @@ public class DetailsView {
 	private static Logger logger = LoggerFactory.getLogger(DetailsView.class);
 
 	@Inject
-	public DetailsView(Composite parent) {
+	public DetailsView(Composite parent)
+	{
 		final Composite composite = new Composite(parent, SWT.NONE);
-		composite
-				.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		composite.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		composite.setLayout(new GridLayout(2, false));
-		Realm.runWithDefault(SWTObservables.getRealm(Display.getDefault()),
-				new Runnable() {
+		Realm.runWithDefault(SWTObservables.getRealm(Display.getDefault()), new Runnable() {
 
-					@Override
-					public void run() {
-						dbc = new DataBindingContext();
-						contactValue = new WritableValue();
-						firstNameText = createText(composite, "First Name:",
-								"firstName");
-						lastNameText = createText(composite, "Last Name:",
-								"lastName");
-						emailText = createText(composite, "Email:", "email");
-					}
-				});
+			@Override
+			public void run()
+			{
+				dbc = new DataBindingContext();
+				contactValue = new WritableValue();
+				firstNameText = createText(composite, "First Name:", "firstName");
+				lastNameText = createText(composite, "Last Name:", "lastName");
+				emailText = createText(composite, "Email:", "email");
+			}
+		});
 	}
 
-	private Text createText(final Composite parent, final String labelText,
-			final String property) {
+	private Text createText(final Composite parent, final String labelText, final String property)
+	{
 		final Label label = new Label(parent, SWT.NONE);
 		label.setText(labelText);
 		GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_FILL);
@@ -76,33 +75,37 @@ public class DetailsView {
 		gridData2.horizontalSpan = 1;
 		text.setLayoutData(gridData2);
 
-		if (property != null) {
+		if (property != null)
+		{
 			dbc.bindValue(SWTObservables.observeText(text, SWT.Modify),
-					PojoObservables.observeDetailValue(contactValue, property,
-							String.class));
+				PojoObservables.observeDetailValue(contactValue, property, String.class));
 		}
 
 		return text;
 	}
 
 	@Inject
-	public void setSelection(
-			@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Contact contact) {
+	public void setSelection(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) Contact contact)
+	{
 		logger.debug("setSelection with: " + contact);
-		if (contact != null) {
+		if (contact != null)
+		{
 			contactValue.setValue(contact);
 		}
 	}
 
-	public Text getFirstNameText() {
+	public Text getFirstNameText()
+	{
 		return firstNameText;
 	}
 
-	public Text getLastNameText() {
+	public Text getLastNameText()
+	{
 		return lastNameText;
 	}
 
-	public Text getEmailText() {
+	public Text getEmailText()
+	{
 		return emailText;
 	}
 

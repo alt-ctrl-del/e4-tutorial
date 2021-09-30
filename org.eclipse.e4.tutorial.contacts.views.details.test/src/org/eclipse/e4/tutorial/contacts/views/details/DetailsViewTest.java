@@ -8,10 +8,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.junit.Test;
 
-public class DetailsViewTest {
+public class DetailsViewTest
+{
 
 	@Test
-	public void shouldSetContactSelection() {
+	public void shouldSetContactSelection()
+	{
 		Composite parent = new Shell();
 		DetailsView detailsView = new DetailsView(parent);
 

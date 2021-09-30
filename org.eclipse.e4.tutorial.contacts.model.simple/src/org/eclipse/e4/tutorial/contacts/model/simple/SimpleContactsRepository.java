@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Copyright (c) 2010 Kai Toedter and others.
- * 
- * All rights reserved. This program and the accompanying materials 
+ *
+ * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html.
- * 
+ *
  * Contributors:
  *     Kai Toedter - initial implementation
  ******************************************************************************/
@@ -20,10 +20,12 @@ import org.eclipse.core.databinding.observable.list.WritableList;
 import org.eclipse.e4.tutorial.contacts.model.Contact;
 import org.eclipse.e4.tutorial.contacts.model.ContactsRepository;
 
-public class SimpleContactsRepository implements ContactsRepository {
+public class SimpleContactsRepository implements ContactsRepository
+{
 	private final IObservableList contacts;
-	
-	public SimpleContactsRepository() {
+
+	public SimpleContactsRepository()
+	{
 		List<Contact> contactList = new ArrayList<Contact>();
 		contactList.add(new SimpleContact("Kai", "Tödter", "kai@toedter.com"));
 		contactList.add(new SimpleContact("Tom", "Schindl", "tom.schindl@bestsolution.at"));
@@ -32,17 +34,20 @@ public class SimpleContactsRepository implements ContactsRepository {
 	}
 
 	@Override
-	public void addContact(final Contact contact) {
+	public void addContact(final Contact contact)
+	{
 		contacts.add(contact);
 	}
 
 	@Override
-	public void removeContact(final Contact contact) {
+	public void removeContact(final Contact contact)
+	{
 		contacts.remove(contact);
 	}
 
 	@Override
-	public IObservableList getAllContacts() {
+	public IObservableList getAllContacts()
+	{
 		return contacts;
 	}
 

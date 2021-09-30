@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>0.20.0</tycho-version>
+		<tycho-version>2.4.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -21,19 +21,20 @@
 		<module>../org.eclipse.e4.tutorial.contacts.model.simple</module>
 		<module>../org.eclipse.e4.tutorial.contacts.renderer</module>
 		<module>../org.eclipse.e4.tutorial.contacts.views.details</module>
-		<module>../org.eclipse.e4.tutorial.contacts.views.details.test</module>
+		<module>../org.eclipse.e4.tutorial.contacts.views.details.test
+		</module>
 		<module>../org.eclipse.e4.tutorial.contacts.model.application</module>
 		<module>../org.eclipse.e4.tutorial.contacts.feature</module>
 		<module>../org.eclipse.e4.tutorial.contacts.target</module>
 	</modules>
 
-<!-- 	<repositories> -->
-<!-- 		<repository> -->
-<!-- 			<id>juno</id> -->
-<!-- 			<layout>p2</layout> -->
-<!-- 			<url>http://download.eclipse.org/releases/juno</url> -->
-<!-- 		</repository> -->
-<!-- 	</repositories> -->
+	<!-- <repositories> -->
+	<!-- <repository> -->
+	<!-- <id>juno</id> -->
+	<!-- <layout>p2</layout> -->
+	<!-- <url>http://download.eclipse.org/releases/juno</url> -->
+	<!-- </repository> -->
+	<!-- </repositories> -->
 
 	<build>
 		<plugins>
